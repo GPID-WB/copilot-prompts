@@ -1,5 +1,5 @@
 ---
-name: deps-and-risk
+name: gpid-proto-deps-risk
 description: "Analyze dependencies, compatibility, and security/stability risks"
 ---
 

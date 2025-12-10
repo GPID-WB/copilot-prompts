@@ -1,5 +1,5 @@
 ---
-name: review-efficiency
+name: gpid-proto-review-efficiency
 description: "Review code for inefficiencies and unnecessary complexity"
 ---
 

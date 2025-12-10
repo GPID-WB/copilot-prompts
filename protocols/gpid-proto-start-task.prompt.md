@@ -1,5 +1,5 @@
 ---
-name: start-task
+name: gpid-proto-start-task
 description: "Start a Copilot-assisted task and initialize logging"
 ---
 

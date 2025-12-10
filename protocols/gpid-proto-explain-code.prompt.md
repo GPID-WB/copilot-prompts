@@ -1,5 +1,5 @@
 ---
-name: explain-code
+name: gpid-proto-explain-code
 description: "Explain code step-by-step and surface assumptions"
 ---
 

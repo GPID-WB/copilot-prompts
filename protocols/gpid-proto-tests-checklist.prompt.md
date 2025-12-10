@@ -1,5 +1,5 @@
 ---
-name: tests-and-checklist
+name: gpid-proto-tests-checklist
 description: "Generate validation checklist and tests for a function or module"
 ---
 

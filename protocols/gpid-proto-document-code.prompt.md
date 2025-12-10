@@ -1,5 +1,5 @@
 ---
-name: document-code
+name: gpid-proto-document-code
 description: "Add comments and Roxygen2 documentation for R/Stata code"
 ---
 
