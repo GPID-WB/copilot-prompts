@@ -1,3 +1,4 @@
+---
 name: gpid-guide-document-task
 description: Record prompts, context, and an incremental development log for a task; support resuming from prior logs and returning a final file.
 ---
