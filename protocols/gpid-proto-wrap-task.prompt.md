@@ -44,4 +44,4 @@ Using our full conversation and your running summary, generate a **Markdown repo
    - main issues uncovered by reviews/self-critique
    - remaining TODOs or recommended future improvements
 
-Return **only** the Markdown document, ready to be written to `copilot_logs/${input}.md`.
+Return **only** the Markdown document, and save it as `copilot_logs/${input}.md`.

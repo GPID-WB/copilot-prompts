@@ -13,7 +13,7 @@ Follow this protocol:
    - a **short task name** (TASK_NAME)
    - a **one-sentence description** of the task (TASK_DESCRIPTION)
 
-2. Once I answer, restate both clearly:
+2. Once I answer, restate both clearly, but do not try to solve the task yet. Use this format:
    - `Task name: ...`
    - `Description: ...`
 
@@ -24,7 +24,7 @@ Follow this protocol:
    - assumptions or limitations we identify
 
 4. Do **not** generate the final report yet.  
-   Your role after the initial questions is to:
+   Your role after the initial questions is, only when asked, to:
    - clarify ambiguities
    - help design the approach
    - generate and refine code/tests according to our protocols.
