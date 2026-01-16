@@ -9,6 +9,13 @@ We have reached the end of a Copilot-assisted task.
 The task name is: **${input}**  
 Use this as `TASK_NAME` (for example in `copilot_logs/${input}.md`).
 
+If `${input}` is not provided or is empty, follow this fallback logic:
+
+- If a `TASK_NAME` was provided earlier in the conversation, reuse that value and confirm it by restating: `Task name: ...`.
+- If no prior `TASK_NAME` can be found, ask the user to provide a short task name with a single prompt: `Please provide a short TASK_NAME to save the final report as copilot_logs/TASK_NAME.md.`
+
+After confirming or obtaining a valid `TASK_NAME`, proceed to generate the Markdown report described below, and save it as `copilot_logs/TASK_NAME.md`.
+
 Using our full conversation and your running summary, generate a **Markdown report** suitable for saving as `copilot_logs/TASK_NAME.md`. Include:
 
 1. **Task overview**
