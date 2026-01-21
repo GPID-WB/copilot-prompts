@@ -6,15 +6,16 @@ argument-hint: "TASK_NAME for copilot_logs/LOG_TASK_NAME.md"
 
 We are updating the **task progress log** for an ongoing Copilot-assisted task.
 
-The task name is: **${input}**  
-Use this as `TASK_NAME` (for example in `copilot_logs/LOG_${input}.md`).
+## Retrieving the task name
 
-If `${input}` is not provided or is empty, follow this fallback logic:
+Locate the task name you provided at the start of this conversation session. Confirm it by restating:
+> Task name: [TASK_NAME]
 
-- If a `TASK_NAME` was established earlier in the conversation, reuse that value and confirm it by restating: `Task name: ...`.
-- If no prior `TASK_NAME` can be found, ask the user to provide the short task name with a single prompt: `Please provide the TASK_NAME to update copilot_logs/LOG_TASK_NAME.md.`
+Then proceed to update `copilot_logs/LOG_${TASK_NAME}.md` where `${TASK_NAME}` is that task name.
 
-After confirming or obtaining a valid `TASK_NAME`, proceed with the update:
+**Fallback:** If you cannot locate the task name in the conversation history, read `.current_task` to retrieve it. If that file doesn't exist either, ask the user to provide the task name with a single prompt: `Please provide the TASK_NAME to update copilot_logs/LOG_TASK_NAME.md.`
+
+After confirming the task name, proceed with the update:
 
 ## Update the log file `copilot_logs/LOG_${TASK_NAME}.md`:
 

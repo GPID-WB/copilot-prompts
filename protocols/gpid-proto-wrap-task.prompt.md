@@ -6,15 +6,16 @@ argument-hint: "TASK_NAME for copilot_logs/TASK_NAME.md"
 
 We have reached the end of a Copilot-assisted task.
 
-The task name is: **${input}**  
-Use this as `TASK_NAME` (for example in `copilot_logs/${input}.md`).
+## Retrieving the task name
 
-If `${input}` is not provided or is empty, follow this fallback logic:
+Locate the task name you provided at the start of this conversation session. Confirm it by restating:
+> Task name: [TASK_NAME]
 
-- If a `TASK_NAME` was provided earlier in the conversation, reuse that value and confirm it by restating: `Task name: ...`.
-- If no prior `TASK_NAME` can be found, ask the user to provide a short task name with a single prompt: `Please provide a short TASK_NAME to save the final report as copilot_logs/TASK_NAME.md.`
+Then proceed to work with `copilot_logs/TASK_NAME.md` and `copilot_logs/LOG_${TASK_NAME}.md` where `${TASK_NAME}` is that task name.
 
-After confirming or obtaining a valid `TASK_NAME`, proceed with the task completion:
+**Fallback:** If you cannot locate the task name in the conversation history, read `.current_task` to retrieve it. If that file doesn't exist either, ask the user to provide the task name with a single prompt: `Please provide a short TASK_NAME to save the final report as copilot_logs/TASK_NAME.md.`
+
+After confirming the task name, proceed with the task completion:
 
 ## Step 1: Review the task log
 
@@ -77,3 +78,9 @@ Include:
 Return **only** the Markdown document, and save it as `copilot_logs/${input}.md`.
 
 This final report, combined with the task log (`copilot_logs/LOG_${input}.md`), provides a complete record of the task work and can serve as reference material for future similar tasks.
+
+## Step 3: Clean up temporary files
+
+After creating `copilot_logs/TASK_NAME.md`, ask the user: **"May I delete the temporary `.current_task` marker file to keep the project clean?"**
+
+If the user agrees (or does not object), delete `.current_task`. If they prefer to keep it or it doesn't exist, proceed without action.

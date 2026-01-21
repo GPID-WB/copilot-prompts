@@ -17,11 +17,13 @@ Follow this protocol:
    - `Task name: ...`
    - `Description: ...`
 
-3. Create a **task log file** at `copilot_logs/LOG_${TASK_NAME}.md` containing:
-   - Task name and description
-   - Initial context and relevant information you identify
-   - A timestamp for task initialization
-   - This log will be used to track progress throughout the task
+3. Create two files for task tracking:
+   - **Task log file** at `copilot_logs/LOG_${TASK_NAME}.md` containing:
+     - Task name and description
+     - Initial context and relevant information you identify
+     - A timestamp for task initialization
+     - This log will be used to track progress throughout the task
+   - **Current task marker** at `.current_task` containing only the task name (for quick reference across the session)
 
 4. From that point on, keep a **concise running summary** of our interaction, including:
    - major prompts I send
