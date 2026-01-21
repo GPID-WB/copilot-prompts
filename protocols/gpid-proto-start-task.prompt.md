@@ -17,13 +17,19 @@ Follow this protocol:
    - `Task name: ...`
    - `Description: ...`
 
-3. From that point on, keep a **concise running summary** of our interaction, including:
+3. Create a **task log file** at `copilot_logs/LOG_${TASK_NAME}.md` containing:
+   - Task name and description
+   - Initial context and relevant information you identify
+   - A timestamp for task initialization
+   - This log will be used to track progress throughout the task
+
+4. From that point on, keep a **concise running summary** of our interaction, including:
    - major prompts I send
    - important decisions we make
    - dependencies added or removed
    - assumptions or limitations we identify
 
-4. Do **not** generate the final report yet.  
+5. Do **not** generate the final report yet.  
    Your role after the initial questions is, only when asked, to:
    - clarify ambiguities
    - help design the approach
