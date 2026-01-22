@@ -23,6 +23,7 @@ Follow this protocol:
      - Initial context and relevant information you identify
      - A timestamp for task initialization
      - This log will be used to track progress throughout the task
+     - **Note:** As we work, you may add a "To Do List" section to track follow-up tasks, improvements, or issues discovered during the current task
    - **Current task marker** at `.current_task` containing only the task name (for quick reference across the session)
 
 4. From that point on, keep a **concise running summary** of our interaction, including:

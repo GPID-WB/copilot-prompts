@@ -74,6 +74,10 @@ Include:
    - main issues uncovered by reviews/self-critique
    - remaining TODOs or recommended future improvements
    - potential enhancements or optimizations for next iteration
+   - **To Do List**: Extract any to-do items from the task log (`copilot_logs/LOG_${TASK_NAME}.md`)
+     - Before finalizing, present the compiled to-do list to the user
+     - Ask: "Here are the to-do items identified during this task. Would you like to add, remove, or modify any items before I include them in the final report?"
+     - Wait for user confirmation or modifications before proceeding
 
 Return **only** the Markdown document, and save it as `copilot_logs/${input}.md`.
 
