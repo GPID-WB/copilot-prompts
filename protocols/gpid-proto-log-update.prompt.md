@@ -28,7 +28,15 @@ After confirming the task name, proceed with the update:
    - **Changes to plan**: Deviations from the original approach or scope
    - **Next steps**: What will be tackled next
 
-3. **Maintain organization** by:
+3. **Update or create the To Do List section**:
+   - Review the conversation since the last log update (or since task initialization)
+   - Identify potential follow-up tasks, improvements, technical debt, or issues discovered
+   - **Before adding to the log**, present your suggested to-do items to the user in a clear list format
+   - Ask: "I suggest adding these items to the To Do List. Would you like me to include them, or would you like to modify/add others?"
+   - Only after user confirmation, add/update the "## To Do List" section in the log
+   - If a To Do List section already exists, preserve completed items and update with new suggestions
+
+4. **Maintain organization** by:
    - Using clear section headings for each update
    - Keeping entries concise but informative
    - Ensuring the log remains chronologically ordered
