@@ -1,6 +1,7 @@
----
+﻿---
 name: gpid-proto-log-update
 description: "Update the task progress log with new information"
+model: ['Claude Haiku 4.5', 'Claude Sonnet 4.5']  # lightweight model; update both entries if model is retired
 argument-hint: "TASK_NAME for copilot_logs/LOG_TASK_NAME.md"
 ---
 
@@ -45,3 +46,4 @@ After confirming the task name, proceed with the update:
 6. **Preserve all prior content**: Do not remove or modify previous log update entries; only append new information. The `## Plan Deviations` block is the only section near the top of the log that should be modified (to accumulate deviation summaries).
 
 Return the updated `copilot_logs/LOG_${TASK_NAME}.md` file with the new update appended.
+

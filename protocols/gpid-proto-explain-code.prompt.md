@@ -1,6 +1,7 @@
----
+﻿---
 name: gpid-proto-explain-code
 description: "Explain code step-by-step and surface assumptions"
+model: ['Claude Haiku 4.5', 'Claude Sonnet 4.5']  # lightweight model; update both entries if model is retired
 ---
 
 You will be asked to explain a function, test file, or script (usually R or Stata).
@@ -37,3 +38,4 @@ Return your explanation in **clean Markdown** with headings:
 - Potential failure points  
 
 This text should be ready to paste into the task summary.
+

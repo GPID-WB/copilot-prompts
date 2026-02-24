@@ -1,58 +1,131 @@
----
+﻿---
 name: gpid-proto-start-task
-description: "Start a Copilot-assisted task and initialize logging"
+description: "Plan and initialize a new Copilot-assisted task"
+agent: gpid-planner
 ---
 
 You are assisting a World Bank technical team (R + Stata) following strict Copilot protocols.
 
-We are starting a **new Copilot-assisted task**.
-
-Follow this protocol:
-
-## Step 0 — Verify that the plan exists
-
-Before doing anything else:
-
-1. Check whether `copilot_logs/LOG_${TASK_NAME}.md` already exists **and** contains a `## PLAN` section.
-   - To find the task name, look in the current conversation history or read `.current_task`.
-2. If the file does **not** exist, or does not contain a `## PLAN` section, stop and display:
-
-   > ⛔ **Plan required**: No approved plan was found for this task.  
-   > Please run `/gpid-proto-plan-task` first to create a plan before starting the task log.
-
-   Do not proceed until the plan exists.
-3. If the plan exists, confirm:
-   > ✅ Plan found in `copilot_logs/LOG_${TASK_NAME}.md`. Proceeding with task initialization.
+**This is the mandatory first step for every task. Run this before any implementation work.**
 
 ---
 
-1. Ask me for:
-   - a **short task name** (TASK_NAME)
-   - a **one-sentence description** of the task (TASK_DESCRIPTION)
+## Step 1  Gather task information
 
-2. Once I answer, restate both clearly, but do not try to solve the task yet. Use this format:
-   - `Task name: ...`
-   - `Description: ...`
+Ask me for:
+- a **short task name** (TASK_NAME, no spaces, use underscores)
+- a **one-sentence description** of the task (TASK_DESCRIPTION)
+- whether this task was **assigned by a TTL** (yes/no)
 
-3. Create two files for task tracking:
-   - **Task log file** at `copilot_logs/LOG_${TASK_NAME}.md` containing:
-     - Task name and description
-     - Initial context and relevant information you identify
-     - A timestamp for task initialization
-     - This log will be used to track progress throughout the task
-     - **Note:** As we work, you may add a "To Do List" section to track follow-up tasks, improvements, or issues discovered during the current task
-   - **Current task marker** at `.current_task` containing only the task name (for quick reference across the session)
+Wait for my answers before continuing.
 
-4. From that point on, keep a **concise running summary** of our interaction, including:
-   - major prompts I send
-   - important decisions we make
-   - dependencies added or removed
-   - assumptions or limitations we identify
+---
 
-5. Do **not** generate the final report yet.  
-   Your role after the initial questions is, only when asked, to:
-   - clarify ambiguities
-   - help design the approach
-   - generate and refine code/tests according to our protocols.
+## Step 2  Produce the plan
 
-Assume that at the end of the task I will call another prompt (`/wrap-task`) to generate the final Markdown summary under `copilot_logs/TASK_NAME.md`.
+Once I answer, produce a **numbered checklist plan** for this task. Each step must be:
+- Specific enough to be deterministic (another developer could follow it without ambiguity)
+- Scoped to a single action or decision
+- Written in this strict format:
+
+```
+- [ ] Step 1: <action>
+- [ ] Step 2: <action>
+...
+```
+
+The plan must cover these phases in order:
+1. **Scoping**  files to read, context to gather, questions to resolve before coding
+2. **Design**  decisions to make before writing code (architecture, patterns, interfaces)
+3. **Implementation**  specific functions, files, or modules to create or modify
+4. **Validation**  tests, checks, and edge cases to verify
+5. **Documentation**  comments, Roxygen2, log update
+6. **Wrap-up**  final review and `/gpid-proto-wrap-task`
+
+Do **not** start implementing anything yet. Only produce the plan.
+
+---
+
+## Step 3  TTL approval reminder
+
+If the task is TTL-assigned, display this message exactly:
+
+>  **TTL Approval Required**: This task was assigned by a TTL. Please present the plan above to the TTL and obtain approval before proceeding.
+> Type `approved` here once confirmed, then continue.
+
+If not TTL-assigned, proceed directly to Step 4.
+
+---
+
+## Step 4  Initialize the task log
+
+Create `copilot_logs/LOG_${TASK_NAME}.md` with this exact structure:
+
+```markdown
+# Task: ${TASK_NAME}
+
+**Description:** ${TASK_DESCRIPTION}
+**Date:** ${ISO_DATE}
+**TTL-assigned:** yes/no
+**Plan approved:** yes/not applicable
+
+---
+
+## PLAN
+
+> This plan was established before implementation began.
+> Any deviation must be logged with the strict heading:
+> `###  PLAN DEVIATION  YYYY-MM-DD HH:MM:SS`
+
+- [ ] Step 1: ...
+- [ ] Step 2: ...
+...
+
+---
+
+## Plan Deviations
+
+> Updated automatically whenever a plan deviation is logged.
+> Each entry corresponds to a `###  PLAN DEVIATION` section below.
+
+*(no deviations recorded yet)*
+
+---
+
+## Update Log
+
+*(updates appended here via `/gpid-proto-log-update`)*
+```
+
+Also create `.current_task` containing only the task name.
+
+---
+
+## Step 5  Begin tracking
+
+After saving the log, confirm:
+-  Plan saved to `copilot_logs/LOG_${TASK_NAME}.md`
+-  `.current_task` created
+-  Ready to begin implementation
+
+From this point on, keep a **concise running summary** of the session, including:
+- major prompts sent
+- important decisions made
+- dependencies added or removed
+- assumptions or limitations identified
+
+Do **not** generate the final report yet  that happens at `/gpid-proto-wrap-task`.
+
+---
+
+## Deviation rule (active for the entire session)
+
+If at any point the plan needs to change:
+
+1. **Do not proceed silently.** Flag the deviation before implementing it.
+2. When logging via `/gpid-proto-log-update`, the heading **must** be:
+   ```
+   ###  PLAN DEVIATION  YYYY-MM-DD HH:MM:SS
+   ```
+3. Append a one-sentence summary to the `## Plan Deviations` block at the top of the log.
+4. State the rationale for the change clearly.
