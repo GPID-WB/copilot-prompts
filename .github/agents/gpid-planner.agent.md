@@ -1,11 +1,11 @@
 ﻿---
-name: GPID Planner
+name: GPID-Planner
 description: "Read-only planning agent for GPID tasks. Always use this agent before starting any implementation."
 tools: ['codebase', 'fetch', 'search', 'usages', 'readFile']
 handoffs:
   - label: "Start Implementation"
     agent: agent
-    prompt: "/gpid-proto-start-task"
+    prompt: "Now implement the plan outlined above."
     send: false
 ---
 
@@ -38,4 +38,4 @@ Every deviation must also be appended to the `## Plan Deviations` summary block 
 
 ## When you are done planning
 
-Select **"Start Implementation"** below to hand off to the implementation agent with `/gpid-proto-start-task` pre-loaded.
+Select **"Start Implementation"** below to hand off to the implementation agent. The approved plan is already in context. Remember the user to keep logging his task with `/gpid-proto-log-update`.
