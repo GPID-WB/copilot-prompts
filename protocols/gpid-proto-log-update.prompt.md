@@ -36,12 +36,12 @@ After confirming the task name, proceed with the update:
    - Only after user confirmation, add/update the "## To Do List" section in the log
    - If a To Do List section already exists, preserve completed items and update with new suggestions
 
-4. **Maintain organization** by:
+5. **Maintain organization** by:
    - Using clear section headings for each update
    - Keeping entries concise but informative
    - Ensuring the log remains chronologically ordered
    - Using consistent formatting throughout
 
-4. **Preserve all prior content**: Do not remove or modify previous updates; only append new information.
+6. **Preserve all prior content**: Do not remove or modify previous log update entries; only append new information. The `## Plan Deviations` block is the only section near the top of the log that should be modified (to accumulate deviation summaries).
 
 Return the updated `copilot_logs/LOG_${TASK_NAME}.md` file with the new update appended.

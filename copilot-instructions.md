@@ -23,6 +23,7 @@ When helping with tasks in this repository:
 We use a shared set of **Copilot user prompt files** that implement our protocols.  
 When the developer uses commands such as:
 
+- `/plan-task` ← **mandatory first step for every task**
 - `/start-task`
 - `/explain-code`
 - `/document-code`
@@ -35,12 +36,15 @@ When the developer uses commands such as:
 you should:
 
 1. Follow the instructions defined by those prompts as the **canonical workflow** for:
+   - **planning tasks before implementation begins** (`/plan-task` — always first)
    - starting Copilot-assisted tasks
    - explaining and documenting code
    - reviewing efficiency and complexity
    - designing tests and edge cases
    - analyzing dependencies and risks
    - producing a final validation bundle
+
+   `/plan-task` must be run before `/start-task` on every task, without exception. It produces the deterministic step-by-step plan, handles TTL approval reminders, and initializes the log with the `## PLAN` section and the `## Plan Deviations` tracking block.
 
 2. Assume that each of these prompts corresponds to a section in our internal document  
    **“Mandatory Protocols for Using GitHub Copilot in Technical Work”**, and behave consistently with it.

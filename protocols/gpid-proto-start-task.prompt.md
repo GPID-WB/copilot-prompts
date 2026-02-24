@@ -9,6 +9,23 @@ We are starting a **new Copilot-assisted task**.
 
 Follow this protocol:
 
+## Step 0 — Verify that the plan exists
+
+Before doing anything else:
+
+1. Check whether `copilot_logs/LOG_${TASK_NAME}.md` already exists **and** contains a `## PLAN` section.
+   - To find the task name, look in the current conversation history or read `.current_task`.
+2. If the file does **not** exist, or does not contain a `## PLAN` section, stop and display:
+
+   > ⛔ **Plan required**: No approved plan was found for this task.  
+   > Please run `/gpid-proto-plan-task` first to create a plan before starting the task log.
+
+   Do not proceed until the plan exists.
+3. If the plan exists, confirm:
+   > ✅ Plan found in `copilot_logs/LOG_${TASK_NAME}.md`. Proceeding with task initialization.
+
+---
+
 1. Ask me for:
    - a **short task name** (TASK_NAME)
    - a **one-sentence description** of the task (TASK_DESCRIPTION)
