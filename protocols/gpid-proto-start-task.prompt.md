@@ -17,13 +17,15 @@ Ask me for:
 - a **description** of the task (TASK_DESCRIPTION)
 - whether this task was **assigned by a TTL** (yes/no)
 
-Wait for my answers before continuing.
+Wait for my answers before continuing. This is just a preliminary step. No details has been given so far. 
 
 ---
 
 ## Step 2  Produce the plan
 
-Once I answer, produce a **numbered checklist plan** for this task. Each step must be:
+Once I answer, Ask me to explain the task in detail; what is the goal in general, how does the output looks like, how should it be tested and validated, among other things. Let the user know that if he/she does not have a clear answer for these questions, you will help him/her develop them but you will need to ask as many questions as needed in order to clarify the task
+
+Once this is done, produce a **numbered checklist plan** for this task. Each step must be:
 - Specific enough to be deterministic (another developer could follow it without ambiguity)
 - Scoped to a single action or decision
 - Written in this strict format:
