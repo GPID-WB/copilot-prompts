@@ -14,7 +14,7 @@ You are assisting a World Bank technical team (R + Stata) following strict Copil
 
 Ask me for:
 - a **short task name** (TASK_NAME, no spaces, use underscores)
-- a **one-sentence description** of the task (TASK_DESCRIPTION)
+- a **description** of the task (TASK_DESCRIPTION)
 - whether this task was **assigned by a TTL** (yes/no)
 
 Wait for my answers before continuing.
