@@ -1,6 +1,7 @@
----
+﻿---
 name: gpid-proto-document-code
 description: "Add comments and Roxygen2 documentation for R/Stata code"
+model: ['Claude Haiku 4.5', 'Claude Sonnet 4.5']  # lightweight model; update both entries if model is retired
 ---
 
 You will be given one or more functions or scripts, mainly in **R** (often using `data.table`, `collapse`, `rlang`) and sometimes **Stata**.
@@ -32,3 +33,4 @@ Then follow this protocol:
 Return:
 1. The updated code (with comments and Roxygen2 tags).  
 2. The plain-language explanation as a separate Markdown section that can be added to the task summary.
+
